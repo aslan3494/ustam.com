@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 25 Ağu 2021, 14:17:32
+-- Üretim Zamanı: 26 Ağu 2021, 11:06:07
 -- Sunucu sürümü: 10.4.20-MariaDB
 -- PHP Sürümü: 8.0.9
 
@@ -35,13 +35,6 @@ CREATE TABLE `kullanici` (
   `rol` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Tablo döküm verisi `kullanici`
---
-
-INSERT INTO `kullanici` (`id`, `eposta`, `sifre`, `tarih`, `rol`) VALUES
-(1, 'ugur@uguryildiz.com', '123456', '2021-08-25 14:37:35', 'admin');
-
 -- --------------------------------------------------------
 
 --
@@ -53,15 +46,24 @@ CREATE TABLE `mesaj` (
   `gonderen` varchar(255) NOT NULL,
   `baslik` varchar(255) NOT NULL,
   `icerik` text NOT NULL,
-  `tarih` datetime NOT NULL DEFAULT current_timestamp()
+  `tarih` datetime NOT NULL DEFAULT current_timestamp(),
+  `dosyaadi` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Tablo döküm verisi `mesaj`
 --
 
-INSERT INTO `mesaj` (`id`, `gonderen`, `baslik`, `icerik`, `tarih`) VALUES
-(2, 'Uğur YILDIZ', 'Test', 'Deneme Amaçlıdır.', '2021-08-24 14:37:39');
+INSERT INTO `mesaj` (`id`, `gonderen`, `baslik`, `icerik`, `tarih`, `dosyaadi`) VALUES
+(1, 'Ümit Tokmak', 'Deneme', 'Bu bir test mesajıdır.', '2021-08-24 12:42:59', ''),
+(2, 'Ümit Tokmak', 'Deneme2', 'Bu bir test mesajıdır.', '2021-08-24 12:44:41', ''),
+(3, 'asfasf', 'asfasfa', 'ssafasf', '2021-08-26 10:50:01', ''),
+(8, 'asfas', 'asfasfas', 'asfasfas', '2021-08-26 10:59:49', ''),
+(9, 'kkkkkkkkk', 'kkkkkkkkk', 'kkkkkkkkk', '2021-08-26 11:00:07', ''),
+(10, 'aaaaaaaa', 'aaaaaaa', 'aaaa', '2021-08-26 11:01:21', ''),
+(11, 'fffffff', 'ffffffffff', 'ffffffff', '2021-08-26 11:02:32', '98743367cf0222c.png'),
+(12, 'Ümit Tokmak', 'Kod', 'Onluk Sayıyı Binary çevirme', '2021-08-26 11:30:51', 'Onluk sayıyı Binary yapma.rar'),
+(13, 'asgfasfssfsf', 'asfasf', 'asfasf', '2021-08-26 11:39:35', 'Capture001.png');
 
 --
 -- Dökümü yapılmış tablolar için indeksler
@@ -87,13 +89,13 @@ ALTER TABLE `mesaj`
 -- Tablo için AUTO_INCREMENT değeri `kullanici`
 --
 ALTER TABLE `kullanici`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `mesaj`
 --
 ALTER TABLE `mesaj`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
